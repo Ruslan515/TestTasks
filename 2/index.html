@@ -8,99 +8,7 @@
   <script src="jQuery_Alert/jquery.alerts.js"></script>
   <link rel="stylesheet" href="jQuery_Alert/jquery.alerts.css">
   <title>Возможные ходы конем</title>
-  <script>
-    function allPos() {
-
-      var positionInput = document.getElementById('posIn').value; // в данной переменной будем хранить введенную позицию
-
-      //проверка корректности ввода
-      if (positionInput == NaN || positionInput == '') {
-        alert('Пустая ячейка');
-        return 0;
-      }
-
-      var letter = positionInput[0]; // храниться позиция по букве
-      letter = letter.toLowerCase(); // для единообрзия переводим в нижний регистр
-
-      //console.log('Letter ' + letter);
-      // console.log(letter.match(/[abcdefgh]/));
-      //проверка корректности ввода буквы
-      if (letter.match(/[a-h]/)) {
-        console.log("Letter OK");
-      } else {
-        console.log("Letter Bad");
-        return;
-      }
-
-      //переводим координаты коня из Буквы в Цифру
-      var letterNum = letter.charCodeAt(0) - 96;
-
-      var numberPos = positionInput[1]; // храниться позиция по цифре
-      //проверка корректности ввода цифры
-      if (numberPos.match(/[1-8]/)) {
-        console.log("Number OK" + ' ' + numberPos);
-      } else {
-        console.log("Number Bad");
-        return;
-      }
-
-      // матрица возможных ходов конем
-      // первая цифра - буква на доске
-      // вторая цифра - цифра на доске
-      var possibleMove = [
-        [-1, -2],
-        [-2, -1],
-        [-2, 1],
-        [1, -2],
-        [-1, 2],
-        [2, -1],
-        [1, 2],
-        [2, 1]
-      ];
-
-      var posMov = [
-        [-1, -2],
-        [-2, -1],
-        [-2, 1],
-        [1, -2],
-        [-1, 2],
-        [2, -1],
-        [1, 2],
-        [2, 1]
-      ];
-      // заносим в матрицу возмоные ходы
-      for (i = 0; i < possibleMove.length; i++) {
-        //console.log(possibleMove[i][1]);
-        posMov[i][0] = possibleMove[i][0] + letterNum;
-        posMov[i][1] = possibleMove[i][1] + parseInt(numberPos);
-        // console.log(numberPos);
-        // console.log(posMov[i][0]);
-        // console.log(posMov[i][1]);
-      }
-
-      //переводим коор-ы коня из Цифры в букву
-      for (i = 0; i < possibleMove.length; i++) {
-        possibleMove[i][0] = String.fromCharCode(posMov[i][0] + 96);
-        possibleMove[i][1] = posMov[i][1];
-        //console.log(possibleMove[i][0]);
-        // console.log(possibleMove[i][1]);
-      }
-
-      //выводим рез-т
-      var ResultStr = '';
-      for (i = 0; i < possibleMove.length; i++) {
-        if (posMov[i][0] > 0 && posMov[i][0] < 9) {
-          if (possibleMove[i][1] > 0 && possibleMove[i][1] < 9) {
-            console.log(possibleMove[i][0]);
-            ResultStr = ResultStr + possibleMove[i][0] + possibleMove[i][1] + ' ';
-          }
-        }
-      }
-      document.getElementById('result').innerHTML = ResultStr; // выводим результат в поле по идент. 'result'
-
-
-    }
-  </script>
+  <script src="1.js" defer></script>
 </head>
 
 <body>
@@ -113,7 +21,7 @@
   </form>
   <br>
   <br>
-  <div id="result"></div> Слой для вывода результат
+  <!-- <div id="result"></div> Слой для вывода результат -->
 </body>
 
 </html>
