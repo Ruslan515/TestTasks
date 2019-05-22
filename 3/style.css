@@ -1,0 +1,23 @@
+
+.square {
+  background: white;
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+  margin: 5px;
+  border-width: 5px;
+  border-style: solid;
+  
+}
+
+
+#square1 {
+  padding: 30px;
+	width: 450px;
+	height: 450px;
+  background: white;
+  
+  border-width: 5px;
+  border-style: solid;
+
+}
